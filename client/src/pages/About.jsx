@@ -14,3 +14,18 @@ export default function About() {
         <p className="text-lg mb-6 text-gray-700 leading-7">
           With a deep understanding of the local market, we help you find the perfect place to call home in the most desirable neighborhoods.
         </p>
+<p className="text-lg mb-6 text-gray-700 leading-7">
+          At PrimeEstatePRO, we believe in turning your dreams into reality. Contact us today to get started on your real estate journey.
+        </p>
+      </div>
+      <div className="flex justify-center">
+        <img
+          src="/images/team.jpg"
+          alt="Team"
+          className="w-48 h-48 object-cover rounded-full border-4 border-white"
+        />
+        <div className="ml-8">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Our Team</h2>
+          <p className="text-lg mb-6 text-gray-700 leading-7">
+            Meet our dedicated team of professionals who are here to guide you every step of the way.
+          </p>
