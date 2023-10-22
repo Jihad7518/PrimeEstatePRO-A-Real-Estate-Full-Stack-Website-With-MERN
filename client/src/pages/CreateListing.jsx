@@ -297,3 +297,52 @@ return (
                 onChange={handleChange}
                 value={formData.discountPrice}
               />
+<div className="flex flex-col items-center">
+                <p>Discounted price</p>
+                <span className="text-xs">($ / month)</span>
+              </div>
+            </div>
+          )}
+          <div className="col-span-2 flex items-center gap-4">
+            <input
+              onChange={(e) => setFiles(e.target.files)}
+              className="p-3 border border-gray-300 rounded w-full"
+              type="file"
+              id="images"
+              accept="image/*"
+              multiple
+            />
+            <button
+              type="button"
+              disabled={uploading}
+              onClick={handleImageSubmit}
+              className="p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80"
+            >
+              {uploading ? 'Uploading...' : 'Upload'}
+            </button>
+          </div>
+          <div className="col-span-2">
+            <p className="text-red-700 text-sm">
+              {imageUploadError && imageUploadError}
+            </p>
+          </div>
+          {formData.imageUrls.length > 0 &&
+            formData.imageUrls.map((url, index) => (
+              <div
+                key={url}
+                className="flex justify-between p-3 border items-center"
+              >
+                <img
+                  src={url}
+                  alt="listing image"
+                  className="w-20 h-20 object-contain rounded-lg"
+                />
+                <button
+                  type="button"
+                  onClick={() => handleRemoveImage(index)}
+                  className="p-3 text-red-700 rounded-lg uppercase hover:opacity-75"
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
