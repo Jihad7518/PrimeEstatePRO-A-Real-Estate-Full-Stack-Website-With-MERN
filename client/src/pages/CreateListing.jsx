@@ -202,3 +202,44 @@ return (
               />
               <span>Sell</span>
             </div>
+<div className="col-span-1 flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="rent"
+                className="w-5"
+                onChange={handleChange}
+                checked={formData.type === 'rent'}
+              />
+              <span>Rent</span>
+            </div>
+            <div className="col-span-1 flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="parking"
+                className="w-5"
+                onChange={handleChange}
+                checked={formData.parking}
+              />
+              <span>Parking spot</span>
+            </div>
+            <div className="col-span-1 flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="furnished"
+                className="w-5"
+                onChange={handleChange}
+                checked={formData.furnished}
+              />
+              <span>Furnished</span>
+            </div>
+            <div className="col-span-1 flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="offer"
+                className="w-5"
+                onChange={handleChange}
+                checked={formData.offer}
+              />
+              <span>Offer</span>
+            </div>
+          </div>
