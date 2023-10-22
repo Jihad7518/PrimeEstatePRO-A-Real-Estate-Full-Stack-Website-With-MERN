@@ -151,3 +151,54 @@ const handleChange = (e) => {
       setLoading(false);
     }
   };
+return (
+    <main className="bg-gray-100 min-h-screen p-4">
+      <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 className="text-3xl font-semibold text-center mb-6">Create a Listing</h1>
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="col-span-1">
+            <input
+              type="text"
+              placeholder="Name"
+              className="border rounded-lg p-3 w-full"
+              id="name"
+              maxLength="62"
+              minLength="10"
+              required
+              onChange={handleChange}
+              value={formData.name}
+            />
+          </div>
+          <div className="col-span-2">
+            <textarea
+              type="text"
+              placeholder="Description"
+              className="border rounded-lg p-3 w-full"
+              id="description"
+              required
+              onChange={handleChange}
+              value={formData.description}
+            />
+          </div>
+          <div className="col-span-1">
+            <input
+              type="text"
+              placeholder="Address"
+              className="border rounded-lg p-3 w-full"
+              id="address"
+              required
+              onChange={handleChange}
+              value={formData.address}
+            />
+          </div>
+          <div className="col-span-2 grid grid-cols-2 gap-4">
+            <div className="col-span-1 flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="sale"
+                className="w-5"
+                onChange={handleChange}
+                checked={formData.type === 'sale'}
+              />
+              <span>Sell</span>
+            </div>
