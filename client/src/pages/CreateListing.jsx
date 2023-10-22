@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   getDownloadURL,
@@ -28,7 +27,7 @@ export default function CreateListing() {
     parking: false,
     furnished: false,
   });
-const [imageUploadError, setImageUploadError] = useState(false);
+  const [imageUploadError, setImageUploadError] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -60,7 +59,8 @@ const [imageUploadError, setImageUploadError] = useState(false);
       setUploading(false);
     }
   };
-const storeImage = async (file) => {
+
+  const storeImage = async (file) => {
     return new Promise((resolve, reject) => {
       const storage = getStorage(app);
       const fileName = new Date().getTime() + file.name;
@@ -91,7 +91,8 @@ const storeImage = async (file) => {
       imageUrls: formData.imageUrls.filter((_, i) => i !== index),
     });
   };
-const handleChange = (e) => {
+
+  const handleChange = (e) => {
     if (e.target.id === 'sale' || e.target.id === 'rent') {
       setFormData({
         ...formData,
@@ -121,7 +122,8 @@ const handleChange = (e) => {
       });
     }
   };
- const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (formData.imageUrls.length < 1)
@@ -151,7 +153,8 @@ const handleChange = (e) => {
       setLoading(false);
     }
   };
-return (
+
+  return (
     <main className="bg-gray-100 min-h-screen p-4">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold text-center mb-6">Create a Listing</h1>
@@ -202,7 +205,7 @@ return (
               />
               <span>Sell</span>
             </div>
-<div className="col-span-1 flex items-center gap-2">
+            <div className="col-span-1 flex items-center gap-2">
               <input
                 type="checkbox"
                 id="rent"
@@ -243,7 +246,7 @@ return (
               <span>Offer</span>
             </div>
           </div>
-<div className="col-span-1 flex items-center gap-2">
+          <div className="col-span-1 flex items-center gap-2">
             <input
               type="number"
               id="bedrooms"
@@ -297,7 +300,7 @@ return (
                 onChange={handleChange}
                 value={formData.discountPrice}
               />
-<div className="flex flex-col items-center">
+              <div className="flex flex-col items-center">
                 <p>Discounted price</p>
                 <span className="text-xs">($ / month)</span>
               </div>
@@ -346,3 +349,15 @@ return (
                 </button>
               </div>
             ))}
+          <button
+            disabled={loading || uploading}
+            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+          >
+            {loading ? 'Creating...' : 'Create listing'}
+          </button>
+          {error && <p className="text-red-700 text-sm">{error}</p>}
+        </form>
+      </div>
+    </main>
+  );
+}
