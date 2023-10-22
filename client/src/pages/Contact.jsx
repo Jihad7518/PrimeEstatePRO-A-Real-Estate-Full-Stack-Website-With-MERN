@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 export default function ContactPage() {
@@ -25,7 +24,8 @@ export default function ContactPage() {
     const mailtoLink = `mailto:jihadmd7518@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
   };
-return (
+
+  return (
     <div className="max-w-3xl mx-auto mt-10 p-5">
       <h1 className="text-2xl font-bold mb-5">Contact Us</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -64,3 +64,14 @@ return (
             className="w-full border border-gray-300 p-2 rounded"
             required
           ></textarea>
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  );
+}
