@@ -243,3 +243,57 @@ return (
               <span>Offer</span>
             </div>
           </div>
+<div className="col-span-1 flex items-center gap-2">
+            <input
+              type="number"
+              id="bedrooms"
+              min="1"
+              max="10"
+              required
+              className="p-3 border border-gray-300 rounded-lg w-full"
+              onChange={handleChange}
+              value={formData.bedrooms}
+            />
+            <p>Beds</p>
+          </div>
+          <div className="col-span-1 flex items-center gap-2">
+            <input
+              type="number"
+              id="bathrooms"
+              min="1"
+              max="10"
+              required
+              className="p-3 border border-gray-300 rounded-lg w-full"
+              onChange={handleChange}
+              value={formData.bathrooms}
+            />
+            <p>Baths</p>
+          </div>
+          <div className="col-span-1 flex items-center gap-2">
+            <input
+              type="number"
+              id="regularPrice"
+              min="50"
+              max="10000000"
+              required
+              className="p-3 border border-gray-300 rounded-lg w-full"
+              onChange={handleChange}
+              value={formData.regularPrice}
+            />
+            <div className="flex flex-col items-center">
+              <p>Regular price</p>
+              <span className="text-xs">($ / month)</span>
+            </div>
+          </div>
+          {formData.offer && (
+            <div className="col-span-1 flex items-center gap-2">
+              <input
+                type="number"
+                id="discountPrice"
+                min="0"
+                max="10000000"
+                required
+                className="p-3 border border-gray-300 rounded-lg w-full"
+                onChange={handleChange}
+                value={formData.discountPrice}
+              />
