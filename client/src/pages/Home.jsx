@@ -94,3 +94,44 @@ const fetchRentListings = async () => {
           </Link>
         </div>
       </section>
+{/* Recent Offers Section */}
+      <section className="container mx-auto py-12 pl-10">
+        {offerListings && offerListings.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-3xl font-semibold mb-4">Recent Offers</h2>
+            <Link
+              to={'/search?offer=true'}
+              className="text-blue-700 font-bold hover:underline"
+            >
+              View More Offers
+            </Link>
+          </div>
+        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {offerListings.map((listing) => (
+            <ListingItem key={listing._id} listing={listing} />
+          ))}
+        </div>
+      </section>
+
+      {/* Similar sections for Rent and Sale listings */}
+      <section className="container mx-auto py-12 pl-10">
+        {rentListings && rentListings.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-3xl font-semibold mb-4">
+              Recent Places for Rent
+            </h2>
+            <Link
+              to={'/search?type=rent'}
+              className="text-blue-700 font-bold hover:underline"
+            >
+              View More Places for Rent
+            </Link>
+          </div>
+        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {rentListings.map((listing) => (
+            <ListingItem key={listing._id} listing={listing} />
+          ))}
+        </div>
+      </section>
