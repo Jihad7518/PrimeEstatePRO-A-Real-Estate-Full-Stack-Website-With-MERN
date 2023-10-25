@@ -108,3 +108,34 @@ export default function Listing() {
                 </p>
               )}
             </div>
+ <p className='text-slate-800'>
+              <span className='font-semibold text-black'>Description - </span>
+              {listing.description}
+            </p>
+            <ul className='text-green-900 font-semibold text-base flex flex-wrap items-center gap-4 sm:gap-6'>
+              <li className='flex items-center gap-1 whitespace-nowrap '>
+                <FaBed className='text-xl' />
+                {listing.bedrooms > 1
+                  ? `${listing.bedrooms} beds `
+                  : `${listing.bedrooms} bed `}
+              </li>
+              <li className='flex items-center gap-1 whitespace-nowrap '>
+                <FaBath className='text-xl' />
+                {listing.bathrooms > 1
+                  ? `${listing.bathrooms} baths `
+                  : `${listing.bathrooms} bath `}
+              </li>
+              <li className='flex items-center gap-1 whitespace-nowrap '>
+                <FaParking className='text-xl' />
+                {listing.parking ? 'Parking spot' : 'No Parking'}
+              </li>
+              <li className='flex items-center gap-1 whitespace-nowrap '>
+                <FaChair className='text-xl' />
+                {listing.furnished ? 'Furnished' : 'Unfurnished'}
+              </li>
+            </ul>
+            {currentUser && listing.userRef !== currentUser._id && !contact && (
+              <button
+                onClick={() => setContact(true)}
+                className='bg-gray-800 text-white rounded-lg uppercase hover:opacity-95 p-3'
+              >
