@@ -24,7 +24,8 @@ export default function Home() {
         console.log(error);
       }
     };
-const fetchRentListings = async () => {
+
+    const fetchRentListings = async () => {
       try {
         const res = await fetch('/api/listing/get?type=rent&limit=4');
         const data = await res.json();
@@ -94,7 +95,8 @@ const fetchRentListings = async () => {
           </Link>
         </div>
       </section>
-{/* Recent Offers Section */}
+
+      {/* Recent Offers Section */}
       <section className="container mx-auto py-12 pl-10">
         {offerListings && offerListings.length > 0 && (
           <div className="mb-8">
@@ -135,7 +137,8 @@ const fetchRentListings = async () => {
           ))}
         </div>
       </section>
- <section className="container mx-auto py-12 pl-10">
+
+      <section className="container mx-auto py-12 pl-10">
         {saleListings && saleListings.length > 0 && (
           <div className="mb-8">
             <h2 className="text-3xl font-semibold mb-4">
