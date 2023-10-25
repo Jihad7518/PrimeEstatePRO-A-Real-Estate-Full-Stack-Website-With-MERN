@@ -17,7 +17,8 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
   const [showMore, setShowMore] = useState(false);
-useEffect(() => {
+
+  useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
     const typeFromUrl = urlParams.get('type');
@@ -46,7 +47,8 @@ useEffect(() => {
         order: orderFromUrl || 'desc',
       });
     }
-const fetchListings = async () => {
+
+    const fetchListings = async () => {
       setLoading(true);
       setShowMore(false);
       const searchQuery = urlParams.toString();
@@ -72,7 +74,8 @@ const fetchListings = async () => {
     ) {
       setSidebardata({ ...sidebardata, type: e.target.id });
     }
-if (e.target.id === 'searchTerm') {
+
+    if (e.target.id === 'searchTerm') {
       setSidebardata({ ...sidebardata, searchTerm: e.target.value });
     }
 
@@ -96,7 +99,8 @@ if (e.target.id === 'searchTerm') {
       setSidebardata({ ...sidebardata, sort, order });
     }
   };
-const handleSubmit = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams();
     urlParams.set('searchTerm', sidebardata.searchTerm);
@@ -123,7 +127,7 @@ const handleSubmit = (e) => {
     }
     setListings([...listings, ...data]);
   };
-return (
+  return (
     <div className='flex flex-col md:flex-row'>
       <div className='p-7  border-b-2 md:border-r-2 md:min-h-screen'>
         <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
@@ -152,7 +156,7 @@ return (
               />
               <span>Rent & Sale</span>
             </div>
- <div className='flex gap-2'>
+            <div className='flex gap-2'>
               <input
                 type='checkbox'
                 id='rent'
@@ -183,7 +187,7 @@ return (
               <span>Offer</span>
             </div>
           </div>
-<div className='flex gap-2 flex-wrap items-center'>
+          <div className='flex gap-2 flex-wrap items-center'>
             <label className='font-semibold'>Amenities:</label>
             <div className='flex gap-2'>
               <input
@@ -214,7 +218,7 @@ return (
               id='sort_order'
               className='border rounded-lg p-3'
             >
-<option value='regularPrice_desc'>Price high to low</option>
+              <option value='regularPrice_desc'>Price high to low</option>
               <option value='regularPrice_asc'>Price low to hight</option>
               <option value='createdAt_desc'>Latest</option>
               <option value='createdAt_asc'>Oldest</option>
@@ -244,3 +248,17 @@ return (
             listings.map((listing) => (
               <ListingItem key={listing._id} listing={listing} />
             ))}
+
+          {showMore && (
+            <button
+              onClick={onShowMoreClick}
+              className='text-green-700 hover:underline p-7 text-center w-full'
+            >
+              Show more
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
