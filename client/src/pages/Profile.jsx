@@ -1,4 +1,3 @@
-
 import { useSelector } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
 import {
@@ -19,6 +18,7 @@ import {
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 export default function Profile() {
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -42,7 +42,8 @@ export default function Profile() {
     const fileName = new Date().getTime() + file.name;
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, file);
- uploadTask.on(
+
+    uploadTask.on(
       'state_changed',
       (snapshot) => {
         const progress =
@@ -63,7 +64,8 @@ export default function Profile() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
-const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
@@ -103,7 +105,8 @@ const handleSubmit = async (e) => {
       dispatch(deleteUserFailure(error.message));
     }
   };
-const handleSignOut = async () => {
+
+  const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
       const res = await fetch('/api/auth/signout');
@@ -133,7 +136,8 @@ const handleSignOut = async () => {
       setShowListingsError(true);
     }
   };
- const handleListingDelete = async (listingId) => {
+
+  const handleListingDelete = async (listingId) => {
     try {
       const res = await fetch(`/api/listing/delete/${listingId}`, {
         method: 'DELETE',
@@ -163,7 +167,7 @@ const handleSignOut = async () => {
           hidden
           accept='image/*'
         />
-<img
+        <img
           onClick={() => fileRef.current.click()}
           src={formData.avatar || currentUser.avatar}
           alt='profile'
@@ -190,7 +194,7 @@ const handleSignOut = async () => {
           className='border p-3 rounded-lg'
           onChange={handleChange}
         />
-<input
+        <input
           type='email'
           placeholder='email'
           id='email'
@@ -225,7 +229,7 @@ const handleSignOut = async () => {
         >
           Delete account
         </span>
-<span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
+        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
           Sign out
         </span>
       </div>
@@ -258,7 +262,7 @@ const handleSignOut = async () => {
                   className='h-16 w-16 object-contain'
                 />
               </Link>
-<Link
+              <Link
                 className='text-slate-700 font-semibold  hover:underline truncate flex-1'
                 to={`/listing/${listing._id}`}
               >
