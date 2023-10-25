@@ -135,3 +135,26 @@ const fetchRentListings = async () => {
           ))}
         </div>
       </section>
+ <section className="container mx-auto py-12 pl-10">
+        {saleListings && saleListings.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-3xl font-semibold mb-4">
+              Recent Places for Sale
+            </h2>
+            <Link
+              to={'/search?type=sale'}
+              className="text-blue-700 font-bold hover:underline"
+            >
+              View More Places for Sale
+            </Link>
+          </div>
+        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {saleListings.map((listing) => (
+            <ListingItem key={listing._id} listing={listing} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
