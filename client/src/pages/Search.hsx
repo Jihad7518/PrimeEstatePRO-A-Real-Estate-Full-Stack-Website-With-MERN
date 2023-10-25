@@ -183,3 +183,34 @@ return (
               <span>Offer</span>
             </div>
           </div>
+<div className='flex gap-2 flex-wrap items-center'>
+            <label className='font-semibold'>Amenities:</label>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='parking'
+                className='w-5'
+                onChange={handleChange}
+                checked={sidebardata.parking}
+              />
+              <span>Parking</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='furnished'
+                className='w-5'
+                onChange={handleChange}
+                checked={sidebardata.furnished}
+              />
+              <span>Furnished</span>
+            </div>
+          </div>
+          <div className='flex items-center gap-2'>
+            <label className='font-semibold'>Sort:</label>
+            <select
+              onChange={handleChange}
+              defaultValue={'created_at_desc'}
+              id='sort_order'
+              className='border rounded-lg p-3'
+            >
