@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,6 +16,7 @@ import {
 import Contact from '../components/Contact';
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
+
 export default function Listing() {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
@@ -48,7 +48,8 @@ export default function Listing() {
     };
     fetchListing();
   }, [params.listingId]);
- return (
+
+  return (
     <main>
       {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
       {error && (
@@ -81,7 +82,7 @@ export default function Listing() {
               }}
             />
           </div>
-{copied && (
+          {copied && (
             <p className='fixed top-[23%] right-[5%] z-10 rounded-md bg-slate-100 p-2'>
               Link copied!
             </p>
@@ -108,7 +109,7 @@ export default function Listing() {
                 </p>
               )}
             </div>
- <p className='text-slate-800'>
+            <p className='text-slate-800'>
               <span className='font-semibold text-black'>Description - </span>
               {listing.description}
             </p>
@@ -139,3 +140,13 @@ export default function Listing() {
                 onClick={() => setContact(true)}
                 className='bg-gray-800 text-white rounded-lg uppercase hover:opacity-95 p-3'
               >
+                Contact landlord
+              </button>
+            )}
+            {contact && <Contact listing={listing} />}
+          </div>
+        </div>
+      )}
+    </main>
+  );
+}
