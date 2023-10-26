@@ -313,3 +313,33 @@ export default function CreateListing() {
             </div>
           )}
         </div>
+
+        {/* Right Column */}
+        <div className='space-y-4'>
+          <p className='font-semibold'>
+            Images:
+            <span className='font-normal text-gray-600 ml-2'>
+              The first image will be the cover (max 6)
+            </span>
+          </p>
+          <div className='flex items-center gap-4'>
+            <input
+              onChange={(e) => setFiles(e.target.files)}
+              className='w-full p-3 border border-gray-300 rounded'
+              type='file'
+              id='images'
+              accept='image/*'
+              multiple
+            />
+            <button
+              type='button'
+              disabled={uploading}
+              onClick={handleImageSubmit}
+              className='p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-md disabled:opacity-80'
+            >
+              {uploading ? 'Uploading...' : 'Upload'}
+            </button>
+          </div>
+          <p className='text-red-700 text-sm'>
+            {imageUploadError && imageUploadError}
+          </p>
