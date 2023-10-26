@@ -48,3 +48,36 @@ export default function Listing() {
     };
     fetchListing();
   }, [params.listingId]);
+ return (
+    <main>
+      {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
+      {error && (
+        <p className='text-center my-7 text-2xl'>Something went wrong!</p>
+      )}
+      {listing && !loading && !error && (
+        <div>
+          <Swiper navigation>
+            {listing.imageUrls.map((url) => (
+              <SwiperSlide key={url}>
+                <div
+                  className='h-[550px]'
+                  style={{
+                    background: `url(${url}) center no-repeat`,
+                    backgroundSize: 'cover',
+                  }}
+                ></div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
+            <FaShare
+              className='text-slate-500'
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                setCopied(true);
+                setTimeout(() => {
+                  setCopied(false);
+                }, 2000);
+              }}
+            />
+          </div>
