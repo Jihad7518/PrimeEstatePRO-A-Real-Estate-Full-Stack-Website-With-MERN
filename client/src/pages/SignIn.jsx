@@ -14,3 +14,29 @@ export default function SignIn() {
       [e.target.id]: e.target.value,
     });
   };
+ const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const res = await fetch('/api/auth/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.success === false) {
+        setLoading(false);
+        setError(data.message);
+        return;
+      }
+      setLoading(false);
+      setError(null);
+      navigate('/');
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
+  };
