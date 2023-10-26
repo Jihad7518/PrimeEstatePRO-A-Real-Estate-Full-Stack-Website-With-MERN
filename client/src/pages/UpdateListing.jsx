@@ -231,7 +231,7 @@ export default function CreateListing() {
               />
               <span>Parking spot</span>
             </div>
- <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2'>
               <input
                 type='checkbox'
                 id='furnished'
@@ -263,7 +263,7 @@ export default function CreateListing() {
               onChange={handleChange}
               value={formData.bedrooms}
             />
-<p>Beds</p>
+            <p>Beds</p>
           </div>
           <div className='flex items-center gap-2'>
             <input
@@ -343,7 +343,7 @@ export default function CreateListing() {
           <p className='text-red-700 text-sm'>
             {imageUploadError && imageUploadError}
           </p>
- {formData.imageUrls.length > 0 &&
+          {formData.imageUrls.length > 0 &&
             formData.imageUrls.map((url, index) => (
               <div
                 key={url}
@@ -374,3 +374,4 @@ export default function CreateListing() {
       </form>
     </main>
   );
+}
