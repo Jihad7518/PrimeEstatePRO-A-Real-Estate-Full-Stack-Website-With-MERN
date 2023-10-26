@@ -231,3 +231,35 @@ export default function CreateListing() {
               />
               <span>Parking spot</span>
             </div>
+ <div className='flex items-center gap-2'>
+              <input
+                type='checkbox'
+                id='furnished'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.furnished}
+              />
+              <span>Furnished</span>
+            </div>
+            <div className='flex items-center gap-2'>
+              <input
+                type='checkbox'
+                id='offer'
+                className='w-5'
+                onChange={handleChange}
+                checked={formData.offer}
+              />
+              <span>Offer</span>
+            </div>
+          </div>
+          <div className='flex items-center gap-2'>
+            <input
+              type='number'
+              id='bedrooms'
+              min='1'
+              max='10'
+              required
+              className='w-20 p-3 border border-gray-300 rounded-lg'
+              onChange={handleChange}
+              value={formData.bedrooms}
+            />
