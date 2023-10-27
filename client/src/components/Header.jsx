@@ -1,4 +1,3 @@
-
 import { FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -16,7 +15,8 @@ export default function Header() {
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
-useEffect(() => {
+
+  useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
     if (searchTermFromUrl) {
@@ -44,7 +44,7 @@ useEffect(() => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-<button type="submit">
+          <button type="submit">
             <FaSearch className='text-gray-900' />
           </button>
         </form>
@@ -69,3 +69,5 @@ useEffect(() => {
         </ul>
       </div>
     </header>
+  );
+}
