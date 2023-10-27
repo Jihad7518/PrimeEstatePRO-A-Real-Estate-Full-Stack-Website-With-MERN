@@ -20,7 +20,7 @@ export default function Contact({ listing }) {
     };
     fetchLandlord();
   }, [listing.userRef]);
-return (
+  return (
     <>
       {landlord && (
         <div className='flex flex-col gap-2'>
@@ -48,3 +48,5 @@ return (
         </div>
       )}
     </>
+  );
+}
