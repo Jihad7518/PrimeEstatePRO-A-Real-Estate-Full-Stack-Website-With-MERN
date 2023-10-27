@@ -20,3 +20,30 @@ export default function Footer() {
           </div>
           <div className="w-full sm:w-1/2 md:w-1/4">
             <h2 className="text-2xl font-bold mb-4">Quick Links</h2>
+<ul>
+              <li className="mb-2">
+                <a href="/about">About Us</a>
+              </li>
+              <li className="mb-2">
+                <a href="/services">Services</a>
+              </li>
+              <li className="mb-2">
+                <Link to="/contact">Contact</Link> {/* Changed to Link */}
+              </li>
+            </ul>
+          </div>
+          <div className="w-full sm:w-1/2 md:w-1/4">
+            <h2 className="text-2xl font-bold mb-4">Follow Us</h2>
+            <ul>
+              <li className="mb-2">
+                <a href="https://www.linkedin.com/in/md-jihad-8685a424a/">LinkedIn</a>
+              </li>
+              <li className="mb-2">
+                <a href="https://twitter.com/MdJihad80981458">𝕏</a>
+              </li>
+              <li className="mb-2">
+                <a href="https://github.com/Jihad7518">GitHub</a>
+              </li>
+            </ul>
+          </div>
+        </div>
