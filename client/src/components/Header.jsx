@@ -44,3 +44,28 @@ useEffect(() => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+<button type="submit">
+            <FaSearch className='text-gray-900' />
+          </button>
+        </form>
+        <ul className='flex gap-4'>
+          <Link to='/'>
+            <li className='hidden sm:inline hover:text-blue-300'>Home</li>
+          </Link>
+          <Link to='/about'>
+            <li className='hidden sm:inline hover:text-blue-300'>About</li>
+          </Link>
+          <Link to='/profile'>
+            {currentUser ? (
+              <img
+                className='rounded-full h-7 w-7 object-cover'
+                src={currentUser.avatar}
+                alt='profile'
+              />
+            ) : (
+              <li className='hover:text-blue-300'>Sign in</li>
+            )}
+          </Link>
+        </ul>
+      </div>
+    </header>
