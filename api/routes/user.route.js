@@ -1,4 +1,3 @@
-
 import express from 'express';
 import { test, updateUser, deleteUser, getUserListings, getUser } from '../controllers/user.controller.js';
 import { verifyToken } from '../utils/verifyUser.js';
